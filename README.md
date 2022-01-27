@@ -79,7 +79,7 @@ const myStack = new Stack();
 
 ## Queue
 
-###Description:
+### Description:
 
 The feature of queue is FIFO. That is, fist in, first out.
 

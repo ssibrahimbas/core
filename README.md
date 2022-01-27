@@ -37,7 +37,7 @@ import {Queue, PriorityQueue, Stack} from "@ssibrahimbas/core";
 interface IQueueType {
     name: string;
 }
-const myQueue = new Queue({name: 'John Doe'});
+const myQueue = new Queue<IQueueType>({name: 'John Doe'});
 
 interface IPriorityQueueType {
     priority: number;

@@ -1,6 +1,6 @@
 {
-  "name": "@ssibbrahimbas/core",
-  "version": "0.0.1",
+  "name": "@ssibrahimbas/core",
+  "version": "0.0.3",
   "description": "Contains helpful Type-Java-Script constructs.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -9,12 +9,17 @@
     "dist/**/*"
   ],
   "scripts": {
-    "test": "jest --watchAll --no-cache"
+    "test": "jest --watchAll --no-cache",
+    "clear": "del-cli ./build/*",
+    "build": "npm run clear && tsc"
   },
   "keywords": [
     "JavaScript",
     "TypeScript",
-    "SsiScript"
+    "Stack",
+    "Queue",
+    "Priority Queue",
+    "Ssibrahimbas"
   ],
   "author": "Sami Salih İbrahimbaş",
   "license": "MIT",

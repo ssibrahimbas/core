@@ -1,7 +1,7 @@
 
 <p align="center"><br><img src="https://avatars.githubusercontent.com/u/76786120?v=4" width="128" height="128" style="border-radius: 50px;" /></p>
-<h3 align="center">SsiScript Core</h3>
-<p align="center"><strong><code>@ssiscript/core</code></strong></p>
+<h3 align="center">Ssibrahimbas Core</h3>
+<p align="center"><strong><code>@ssibrahimbas/core</code></strong></p>
 <p align="center">
   Contains helpful Type-Java-Script constructs.
 </p>
@@ -17,13 +17,13 @@
 ### With npm
 
 ```bash
-$ npm install @ssiscript/core
+$ npm install @ssibrahimbas/core
 ```
 
 ### Or with yarn: 
 
 ```bash
-$ yarn add @ssiscript/core
+$ yarn add @ssibrahimbas/core
 ```
 
 ### Usage
@@ -32,7 +32,7 @@ $ yarn add @ssiscript/core
 
 ```typescript
 
-import {Queue, PriorityQueue, Stack} from "@ssiscript/core";
+import {Queue, PriorityQueue, Stack} from "@ssibrahimbas/core";
 
 interface IQueueType {
     name: string;
@@ -56,8 +56,8 @@ const pageHistoryStack = new Stack<IstackType>();
 
 ```javascript
 
-// import {Queue, PriorityQueue, Stack} from "@ssiscript/core"; // for module
-const {Queue, PriorityQueue, Stack} = require("@ssiscript/core"); // for commonjs
+// import {Queue, PriorityQueue, Stack} from "@ssibrahimbas/core"; // for module
+const {Queue, PriorityQueue, Stack} = require("@ssibrahimbas/core"); // for commonjs
 
 const myQueue = new Queue();
 const myPriorityQueue = new PriorityQueue((a,b) => a - b);
@@ -85,7 +85,7 @@ The feature of queue is FIFO. That is, fist in, first out.
 
 Type-Java-Script itself has no queue structure. However, we may want to queue some transactions for various reasons. We can even process according to the importance of these queses, see: PriorityQueue.
 
-That's why this post and you are here. @ssiscript/core It, gives the queue structure to Type-Java-Script.
+That's why this post and you are here. @ssibrahimbas/core It, gives the queue structure to Type-Java-Script.
 
 ```typescript
 

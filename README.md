@@ -305,7 +305,7 @@ Converts queue to string
 type User = {
     name: string;
 }
-const userQueue = new Queue<User>();
+const userQueue = new PriorityQueue<User>();
 userQueue.enqueue({name: "sami"});
 userQueue.enqueue({name: "salih"});
 userQueue.enqueue({name: "mehmet"});

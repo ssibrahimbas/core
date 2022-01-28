@@ -96,7 +96,6 @@ interface QueueType<ElementType> {
     isEmpty() : boolean;
     peek() : ElementType | undefined;
     length() : number;
-    clone() : Array<ElementType>;
     toArray() : Array<ElementType>;
     toString() : string;
 }
@@ -459,8 +458,8 @@ console.log(pageStack.toString()) // "[{url: "www.itemsatis.com"}]"
 
 ```
 
-Converts queue to array
+Converts queue to string
 
-**Returns:** <code>Array&lt;T&gt;</code>
+**Returns:** <code>string</code>
 
 </docgen-api>

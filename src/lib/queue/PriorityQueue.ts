@@ -1,6 +1,7 @@
 import {BaseQueue, QueueType} from "./Queue";
 
 export interface PriorityQueueType<ElementType> extends QueueType<ElementType> {
+    dequeue(index?: number) : ElementType | undefined;
 }
 
 type ComparatorType = (a: any, b: any) => number;

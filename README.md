@@ -98,6 +98,7 @@ interface QueueType<ElementType> {
     length() : number;
     toArray() : Array<ElementType>;
     toString() : string;
+    clone(): QueueType<ElementType>;
 }
 
 ```
@@ -112,6 +113,7 @@ interface QueueType<ElementType> {
 * [`length()`](#QueueLength)
 * [`toArray()`](#QueueToArray)
 * [`toString()`](#QueueToString)
+* [`clone()`]("#QueueClone")
 
 </docgen-index>
 
@@ -125,11 +127,12 @@ We can compare this to the fact that in any queue (for example, the hospital que
 
 While this is a very nice feature, it requires more performance than the Queue itself. Because the list must be reordered every time an element is added. You may have some peace of mind about this. We do the sorting on the insertion with BubbleSort, and it has a total O(logn) performance complexity. If we had used the ``sort``` method instead, this complexity would have increased to O(n log n).
 
-Its usage is exactly the same as Queue except for deletion. The structure running in the background changes.
+Its usage is exactly the same as Queue except for deletion and cloning. The structure running in the background changes.
 
 <docgen-index>
 
 * [`dequeue(...)`](#QueuePriorityDequeue)
+* [`clone()`](#QueuePriorityClone)
 
 </docgen-index>
 
@@ -151,6 +154,7 @@ Thanks to this package, you can use the Stack data type on JavaScript.
 * [`reverse()`](#StackReverse)
 * [`toArray()`](#StackToArray)
 * [`toString()`](#StackToString)
+* [`clone()`](#StackClone)
 
 </docgen-index>
 
@@ -293,9 +297,23 @@ console.log(userQueue.toString()) // "[{name: 'sami'}]"
 
 ```
 
-Converts queue to string
+### QueueClone
 
-**Returns:** <code>string</code>
+```typescript
+
+type User = {
+    name: string;
+}
+const userQueue = new Queue<User>();
+userQueue.enqueue({name: "sami"});
+const employeeQueue = userQueue.clone();
+console.log(employeeQueue.toString()) // "[{name: 'sami'}]"
+
+```
+
+Clones the queue
+
+**Returns:** <code>QueueType&lt;T&gt;</code>
 
 ### QueuePriorityDequeue
 
@@ -304,12 +322,12 @@ Converts queue to string
 type User = {
     name: string;
 }
-const userQueue = new PriorityQueue<User>();
-userQueue.enqueue({name: "sami"});
-userQueue.enqueue({name: "salih"});
-userQueue.enqueue({name: "mehmet"});
-userQueue.dequeue(); // remove 0 index
-userQueue.dequeue(1); // remove 1 index
+const userQueue = new PriorityQueue<User>((a,b) => a.priority - b.priority);
+userQueue.enqueue({name: "sami", priority: 2});
+userQueue.enqueue({name: "salih", priority: 3});
+userQueue.enqueue({name: "mehmet", priority: 1});
+userQueue.dequeue(); // remove salih
+userQueue.dequeue(1); // remove mehmet
 
 ```
 
@@ -320,6 +338,25 @@ Remove first element or your index this queue - cf. FIFO
 | **`index`** | number |
 
 **Returns:** <code>void</code>
+
+### QueuePriorityClone
+
+```typescript
+
+type User = {
+    name: string;
+}
+const userQueue = new PriorityQueue<User>((a,b) => a.priority - b.priority);
+userQueue.enqueue({name: "sami", priority: 2});
+userQueue.enqueue({name: "salih", priority: 3});
+const employeeQueue = userQueue.clone();
+console.log(employeeQueue.toString()) // "[{name: "salih", priority: 3}, {name: "sami", priority: 2}]"
+
+```
+
+Clones the queue
+
+**Returns:** <code>PriorityQueueType&lt;T&gt;</code>
 
 ### StackPush
 
@@ -461,5 +498,23 @@ console.log(pageStack.toString()) // "[{url: "www.itemsatis.com"}]"
 Converts queue to string
 
 **Returns:** <code>string</code>
+
+### StackClone
+
+```typescript
+
+type Page = {
+    url: string;
+}
+const pageStack = new Stack<Page>();
+pageStack.push({url: "www.itemsatis.com"});
+const pageStackClone = pageStack.clone();
+console.log(pageStackClone.toString()) // "[{url: "www.itemsatis.com"}]"
+
+```
+
+Clones the queue
+
+**Returns:** <code>StackType&lt;T&gt;</code>
 
 </docgen-api>

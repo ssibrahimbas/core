@@ -39,14 +39,18 @@ export interface QueueType<ElementType>{
      * @description converts queue to string
      * */
     toString() : string;
+
+    /**
+     * @description clone this queue
+     * */
+    clone(): Queue<ElementType>;
 };
 
-export abstract class BaseQueue<ElementType> implements QueueType<ElementType> {
-    protected readonly $queue : Array<ElementType>;
+export class Queue<ElementType> implements QueueType<ElementType> {
+    readonly $queue : Array<ElementType>;
 
-    protected constructor(array : Array<ElementType> = []) {
+    constructor(array : Array<ElementType> = []) {
         this.$queue = array;
-        Object.setPrototypeOf(this, BaseQueue.prototype);
     };
 
     get size(): number {
@@ -74,16 +78,14 @@ export abstract class BaseQueue<ElementType> implements QueueType<ElementType> {
     };
 
     toArray() : Array<ElementType> {
-        return this.$queue;
+        return [...this.$queue];
+    }
+
+    clone() : Queue<ElementType> {
+        return new Queue(this.toArray());
     }
 
     toString() : string {
         return JSON.stringify(this.$queue);
-    }
+    };
 }
-
-export class Queue<ElementType = any> extends BaseQueue<ElementType> {
-    constructor(array: Array<ElementType> = []) {
-        super(array);
-    }
-};

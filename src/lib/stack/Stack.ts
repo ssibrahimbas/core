@@ -38,6 +38,11 @@ export interface StackType<ElementType> {
     * @description converts stack to string
     * */
     toString() : string;
+
+    /**
+     * @description clone this stack
+     * */
+    clone(): Stack<ElementType>;
 };
 
 export class Stack<ElementType> implements StackType<ElementType> {
@@ -85,6 +90,10 @@ export class Stack<ElementType> implements StackType<ElementType> {
     reverse() : void {
         this._reverse(this.$top - 1);
     };
+
+    clone(): Stack<ElementType> {
+        return new Stack<ElementType>();
+    }
 
     private _reverse(index : number) : void {
         if(index !== 0) {

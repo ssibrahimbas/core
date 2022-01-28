@@ -32,7 +32,7 @@ test("create three users and dequeue first user", () => {
 });
 
 test("create a age priority queue and add six users to this queue", () => {
-    const queuePriority = new PriorityQueue<User>((u1, u2) => u1.age - u2.age);
+    const queuePriority = new PriorityQueue<User>((u1, u2) => u2.age - u1.age);
     const userOne = new User("Mehmet", 20);
     const userTwo = new User("John", 33);
     const userThree = new User("Henry", 22);
@@ -45,9 +45,21 @@ test("create a age priority queue and add six users to this queue", () => {
     queuePriority.enqueue(userFour);
     queuePriority.enqueue(userFive);
     queuePriority.enqueue(userSix);
+    console.log(queuePriority.toArray())
     expect(queuePriority.peek()?.name).toEqual(userSix.name);
     expect(queuePriority.length()).toEqual(6);
     queuePriority.dequeue(); // remove userSix - Mehmet
-    expect(queuePriority.peek()?.name).toEqual(userTwo.name);
 
+    expect(queuePriority.peek()?.name).toEqual(userTwo.name);
+})
+
+test("create a queue and clone this queue", () => {
+    const queuePriority = new PriorityQueue<User>((u1, u2) => u2.age - u1.age);
+    const userOne = new User("Mehmet", 20);
+    const userTwo = new User("John", 33);
+    queuePriority.enqueue(userOne);
+    queuePriority.enqueue(userTwo);
+    const clone = queuePriority.clone();
+    clone.dequeue();
+    expect(queuePriority.size).toEqual(clone.size + 1);
 })

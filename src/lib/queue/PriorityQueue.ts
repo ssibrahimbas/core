@@ -1,7 +1,17 @@
 import {Queue, QueueType} from "./Queue";
 
 export interface PriorityQueueType<ElementType> extends QueueType<ElementType> {
+
+    /**
+     * @description remove element from this queue and sort by priority
+     * @since 0.0.1
+     * */
     dequeue(index?: number) : ElementType | undefined;
+
+    /**
+     * @description clone this priority queue
+     * @since 0.0.8
+     * */
     clone(): PriorityQueue<ElementType>;
 }
 

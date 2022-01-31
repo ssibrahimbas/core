@@ -1,7 +1,16 @@
 {
   "name": "@ssibrahimbas/core",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Contains helpful Type-Java-Script constructs.",
+  "homepage": "https://github.com/ssibrahimbas/core/blob/master/README.md",
+  "bugs": {
+    "url": "https://github.com/ssibrahimbas/core/issues",
+    "email": "info@samisalihibrahimbas.com.tr"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ssibrahimbas/core.git"
+  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [

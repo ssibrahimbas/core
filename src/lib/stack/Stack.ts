@@ -1,46 +1,55 @@
 export interface StackType<ElementType> {
     /**
      * @description add element to this stack
+     * @since 0.0.1
      * */
     push(element : ElementType) : void;
 
     /**
      * @returns stack size
+     * @since 0.0.1
      * */
     length() : number;
 
     /**
      * @returns get top element
+     * @since 0.0.1
      * */
     peek() : ElementType | undefined;
 
     /**
      * @returns stack is empty
+     * @since 0.0.1
      * */
     isEmpty(): boolean;
 
     /**
      * @description remove top element
+     * @since 0.0.1
      * */
     pop() : ElementType | undefined;
 
     /**
      * @description reverse stack
+     * @since 0.0.1
      * */
     reverse(): void;
 
     /**
      * @description converts stack to array
+     * @since 0.0.1
      * */
     toArray() : Array<ElementType>;
 
     /**
     * @description converts stack to string
+     * @since 0.0.1
     * */
     toString() : string;
 
     /**
      * @description clone this stack
+     * @since 0.0.8
      * */
     clone(): Stack<ElementType>;
 };

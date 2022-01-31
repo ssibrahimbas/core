@@ -87,27 +87,12 @@ Type-Java-Script itself has no queue structure. However, we may want to queue so
 
 That's why this post and you are here. @ssibrahimbas/core It, gives the queue structure to Type-Java-Script.
 
-```typescript
-
-interface QueueType<ElementType> {
-    size: number;
-    enqueue(element: ElementType) : void;
-    dequeue() : ElementType | undefined;
-    isEmpty() : boolean;
-    peek() : ElementType | undefined;
-    length() : number;
-    toArray() : Array<ElementType>;
-    toString() : string;
-    clone(): QueueType<ElementType>;
-}
-
-```
-
 <docgen-index>
 
 * [`size`](#QueueSize)
 * [`enqueue(...)`](#QueueEnqueue)
 * [`dequeue()`](#QueueDequeue)
+* [`dequeueByIndex(...)`]("#QueueDequeueByIndex")
 * [`isEmpty()`](#QueueIsEmpty)
 * [`peek()`](#QueuePeek)
 * [`length()`](#QueueLength)
@@ -217,6 +202,26 @@ userQueue.dequeue(); // remove first element
 Remove first element this queue - cf. FIFO
 
 **Returns:** <code>void</code>
+
+### QueueDequeueByIndex
+
+```typescript
+
+type User = {
+    name: string;
+}
+const userQueue = new Queue<User>();
+userQueue.enqueue({name: "sami"});
+userQueue.enqueue({name: "john"});
+userQueue.enqueue({name: "evan"});
+userQueue.enqueue({name: "salih"});
+userQueue.dequeueByIndex(2); // remove evan
+
+```
+
+remove element at specific index from this queue
+
+**Returns:** <code>boolean</code>
 
 ### QueueIsEmpty
 
